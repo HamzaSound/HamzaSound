@@ -3,237 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HamzaSound</title>
+  <title>HamzaSound - Connexion Spotify</title>
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #eee;
-    }
     body {
-      background-color: #121212;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 80px auto 60px auto; /* espace en haut pour header fixe */
-      padding: 0 20px;
-      text-align: center;
-    }
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background-color: #181818;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.8);
-      z-index: 1000;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #1db954;
-      cursor: default;
-    }
-    nav a {
+      font-family: Arial, sans-serif;
+      background: #121212;
       color: #eee;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #1db954;
-    }
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        padding: 15px 20px;
-      }
-      nav {
-        margin-top: 10px;
-        display: flex;
-        gap: 20px;
-      }
-      nav a {
-        margin-left: 0;
-      }
-    }
-    h2 {
-      color: #1db954;
-      margin: 40px 0 20px 0;
-      font-size: 2rem;
-    }
-    /* Spotify playlists */
-    .playlist-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .playlist-card {
-      background-color: #282828;
-      border-radius: 12px;
-      width: 320px;
-      padding-bottom: 20px;
-      box-shadow: 0 0 10px rgba(29,185,84,0.4);
-    }
-    .playlist-card iframe {
-      width: 100%;
-      height: 352px;
-      border-radius: 12px 12px 0 0;
-      border: none;
-    }
-    .playlist-card h3 {
-      margin-top: 15px;
-      color: #eee;
-    }
-    /* YouTube playlists */
-    .youtube-playlists {
-      max-width: 700px;
-      margin: 0 auto 60px auto;
       text-align: center;
+      padding: 50px;
     }
-    .playlist-menu {
-      margin-bottom: 20px;
-    }
-    .playlist-menu button {
+    button {
       background-color: #1db954;
       border: none;
-      color: #121212;
-      padding: 10px 20px;
-      margin: 0 10px 10px 10px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 5px;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-    .playlist-menu button:hover {
-      background-color: #17a744;
-    }
-    iframe#youtube-player {
-      width: 100%;
-      height: 360px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(29,185,84,0.6);
-    }
-    @media (max-width: 700px) {
-      iframe#youtube-player {
-        height: 240px;
-      }
-    }
-    /* About & Contact */
-    section#about, section#contact {
-      max-width: 700px;
-      margin: 0 auto 60px auto;
-      color: #ccc;
-      text-align: center;
-    }
-    section#about h2, section#contact h2 {
-      color: #1db954;
-      margin-bottom: 20px;
-    }
-    .social-links a {
-      color: #1db954;
-      margin: 0 15px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .social-links a:hover {
-      color: #eee;
-    }
-    footer {
-      background-color: #181818;
-      padding: 15px 40px;
-      text-align: center;
-      color: #ccc;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.8);
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      left: 0;
+    #player-status {
+      margin-top: 20px;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">HamzaSound</div>
-  <nav>
-    <a href="#playlists-spotify">Playlists Spotify</a>
-    <a href="#youtube-playlists">Playlists YouTube</a>
-    <a href="#about">À propos</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <h1>HamzaSound - Écoute Spotify</h1>
 
-<!-- Playlists Spotify -->
-<section id="playlists-spotify">
-  <h2>Playlists Spotify</h2>
-  <div class="playlist-grid">
-    <div class="playlist-card">
-      <iframe src="https://open.spotify.com/embed/playlist/0j21a5o4C5i0X395Di8wDz?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" allowfullscreen></iframe>
-      <h3>Ma Playlist Spotify</h3>
-    </div>
-    <div class="playlist-card">
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DWYtEjm4ihp5w?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" allowfullscreen></iframe>
-      <h3>Playlist Chill</h3>
-    </div>
-    <div class="playlist-card">
-      <iframe src="https://open.spotify.com/embed/playlist/3ojE9kf80jyO1sbqb73VFr?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" allowfullscreen></iframe>
-      <h3>Playlist Rap & Hip-Hop</h3>
-    </div>
+  <button id="login-btn">Se connecter avec Spotify</button>
+
+  <div id="player-container" style="display:none;">
+    <h2>Lecteur Spotify</h2>
+    <div id="player-status">Connexion au player...</div>
+    <button id="play-btn">▶️ Play</button>
+    <button id="pause-btn">⏸ Pause</button>
   </div>
-</section>
 
-<!-- Playlists YouTube -->
-<section id="youtube-playlists" class="youtube-playlists">
-  <h2>Playlists YouTube</h2>
-  <div class="playlist-menu">
-    <button onclick="loadPlaylist('PLvlrlPZZ-B2y8Ldu4PiXtq9RsgdZpLvgH')">RAP MAROC 2020</button>
-  </div>
-  <iframe
-    id="youtube-player"
-    src="https://www.youtube.com/embed/videoseries?list=PLvlrlPZZ-B2y8Ldu4PiXtq9RsgdZpLvgH"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</section>
+  <script>
+    const clientId = '4d8348fc58e843039f1ce4c19e2518ae';
 
-<!-- À propos -->
-<section id="about">
-  <h2>À propos de HamzaSound</h2>
-  <p>
-    HamzaSound, c’est le coin cool pour choper toutes tes playlists préférées près de toi.<br />
-    Ici, c’est simple et rapide pour kiffer la musique que t’aimes, que ce soit du rap, de la pop ou du chill.<br />
-    Avec HamzaSound, trouve facilement tes sons et lance la vibe !
-  </p>
-</section>
+    // Redirect URI pour GitHub Pages
+    const redirectUri = 'https://hamzasound.github.io/HamzaSound/';
 
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Tu peux nous retrouver sur les réseaux sociaux et partager ta vibe avec nous !</p>
-  <div class="social-links">
-    <a href="https://www.instagram.com/7mz____/?utm_source=qr#" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a href="https://www.snapchat.com/@hamza-x7777?invite_id=e3NMwSI5&locale=fr_US&share_id=jgX4FjTRTqyLcAwjVquiJg&sid=af4f3272a17d45099cbf162afc0802c2" target="_blank" rel="noopener noreferrer">Snapchat</a>
-  </div>
-</section>
+    document.getElementById('login-btn').onclick = () => {
+      const scopes = [
+        'streaming',
+        'user-read-email',
+        'user-read-private',
+        'user-read-playback-state',
+        'user-modify-playback-state',
+        'user-read-currently-playing'
+      ];
 
-<footer>
-  <p>© 2025 HamzaSound. Tous droits réservés.</p>
-</footer>
+      const authUrl = 'https://accounts.spotify.com/authorize' +
+        '?response_type=token' +
+        '&client_id=' + encodeURIComponent(clientId) +
+        '&scope=' + encodeURIComponent(scopes.join(' ')) +
+        '&redirect_uri=' + encodeURIComponent(redirectUri) +
+        '&show_dialog=true';
 
-<script>
-  function loadPlaylist(playlistId) {
-    const player = document.getElementById('youtube-player');
-    player.src = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
-  }
-</script>
+      window.location = authUrl;
+    };
 
+    function getTokenFromUrl() {
+      return window.location.hash
+        .substring(1)
+        .split('&')
+        .reduce((initial, item) => {
+          let parts = item.split('=');
+          initial[parts[0]] = decodeURIComponent(parts[1]);
+          return initial;
+        }, {});
+    }
+
+    window.onload = () => {
+      const hash = getTokenFromUrl();
+      window.location.hash = '';
+
+      const token = hash.access_token;
+      if (token) {
+        document.getElementById('login-btn').style.display = 'none';
+        document.getElementById('player-container').style.display = 'block';
+
+        const script = document.createElement('script');
+        script.src = 'https://sdk.scdn.co/spotify-player.js';
+        document.body.appendChild(script);
+
+        window.onSpotifyWebPlaybackSDKReady = () => {
+          const player = new Spotify.Player({
+            name: 'HamzaSound Player',
+            getOAuthToken: cb => { cb(token); },
+            volume: 0.5
+          });
+
+          player.addListener('ready', ({ device_id }) => {
+            document.getElementById('player-status').textContent = 'Player prêt. Device ID: ' + device_id;
+
+            fetch('https://api.spotify.com/v1/me/player', {
+              method: 'PUT',
+              body: JSON.stringify({
+                device_ids: [device_id],
+                play: false
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+              }
+            });
+          });
+
+          player.addListener('not_ready', ({ device_id }) => {
+            document.getElementById('player-status').textContent = 'Player déconnecté';
+          });
+
+          player.connect();
+
+          document.getElementById('play-btn').onclick = () => {
+            player.resume();
+          };
+          document.getElementById('pause-btn').onclick = () => {
+            player.pause();
+          };
+        };
+      }
+    };
+  </script>
 </body>
 </html>

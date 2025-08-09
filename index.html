@@ -1,124 +1,226 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HamzaSound - Playlists YouTube & Spotify</title>
-<style>
-  body {
-    margin:0; padding:0;
-    background: #121212;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  header, footer {
-    background: #191414;
-    color: #1DB954;
-    text-align: center;
-    padding: 20px 10px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-  }
-  main {
-    max-width: 960px;
-    margin: 30px auto;
-    padding: 0 20px;
-  }
-  h2 {
-    color: #1DB954;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .playlist-section {
-    margin-bottom: 50px;
-  }
-  .playlist-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  .playlist-card {
-    background: #282828;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px #1DB954aa;
-    width: 320px;
-    padding: 15px;
-    text-align: center;
-  }
-  iframe {
-    border-radius: 12px;
-    width: 100%;
-    height: 180px;
-    border: none;
-  }
-  /* Spotify iframe bigger */
-  .spotify iframe {
-    height: 352px;
-  }
-  /* Titles */
-  .playlist-title {
-    margin-top: 10px;
-    color: #eee;
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-  /* Responsive */
-  @media (max-width: 700px) {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HamzaSound - Playlists YouTube & Spotify</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: #1DB954;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #1ed760;
+      text-decoration: underline;
+    }
+    header {
+      background-color: #191414;
+      padding: 20px 40px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      user-select: none;
+      text-align: center;
+    }
+    main {
+      flex: 1;
+      max-width: 960px;
+      margin: 40px auto;
+      width: 90%;
+    }
+    h2 {
+      color: #1DB954;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    /* Grid container for playlists */
+    .playlists-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
     .playlist-card {
-      width: 90vw;
+      background: #282828;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+    .playlist-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px #1DB954aa;
+    }
+    .playlist-title {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      color: #eee;
     }
     iframe {
-      height: 200px;
+      width: 100%;
+      border-radius: 12px;
+      border: none;
+      display: block;
+      height: 180px;
     }
+    /* Spotify iframes are taller */
     .spotify iframe {
-      height: 300px;
+      height: 352px;
     }
-  }
-</style>
+    /* Responsive smaller */
+    @media (max-width: 480px) {
+      header {
+        font-size: 1.6rem;
+        padding: 15px 20px;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      iframe {
+        height: 160px;
+      }
+      .spotify iframe {
+        height: 260px;
+      }
+    }
+    section#about {
+      background: #282828;
+      padding: 20px;
+      border-radius: 12px;
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      max-width: 960px;
+      margin: 0 auto 40px auto;
+    }
+    footer {
+      background: #191414;
+      text-align: center;
+      padding: 15px 10px;
+      color: #666;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    footer a {
+      color: #1DB954;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  HamzaSound - Écoutez vos playlists YouTube & Spotify
+  HamzaSound - Playlists YouTube & Spotify
 </header>
 
 <main>
-
-  <section class="playlist-section" id="youtube-section">
+  <section id="playlists-youtube">
     <h2>Playlists YouTube</h2>
-    <div class="playlist-container">
-      <div class="playlist-card">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLvlrlPZZ-B2y8Ldu4PiXtq9RsgdZpLvgH" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="playlists-container">
+      <div class="playlist-card youtube">
+        <iframe 
+          src="https://www.youtube.com/embed/videoseries?list=PLvlrlPZZ-B2y8Ldu4PiXtq9RsgdZpLvgH" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen
+          title="Playlist Rap Maroc 2020"></iframe>
         <div class="playlist-title">Playlist Rap Maroc 2020</div>
       </div>
-      <div class="playlist-card">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLSJkIg_k31H_CoiwpGeklxjQuSR86MZ64" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="playlist-card youtube">
+        <iframe 
+          src="https://www.youtube.com/embed/videoseries?list=PLSJkIg_k31H_CoiwpGeklxjQuSR86MZ64" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen
+          title="Playlist Chill Vibes"></iframe>
         <div class="playlist-title">Playlist Chill Vibes</div>
       </div>
-      <!-- Ajoute d'autres playlists ici -->
+      <div class="playlist-card youtube">
+        <iframe 
+          src="https://www.youtube.com/embed/videoseries?list=PLm7aQ2P4NkQSUZCbZTTxnePtNnhqxUO5w" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen
+          title="Playlist Non Récupérée 1"></iframe>
+        <div class="playlist-title">Playlist Non Récupérée 1</div>
+      </div>
+      <div class="playlist-card youtube">
+        <iframe 
+          src="https://www.youtube.com/embed/videoseries?list=PLaiwvpfE9Qsg-xvVHLFGgsq4bfgAhuo8G" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen
+          title="Playlist Non Récupérée 2"></iframe>
+        <div class="playlist-title">Playlist Non Récupérée 2</div>
+      </div>
+      <div class="playlist-card youtube">
+        <iframe 
+          src="https://www.youtube.com/embed/videoseries?list=PLkVOH0_SJjvBmLSKkLeL0GTdYC8l-p2aN" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen
+          title="Playlist Non Récupérée 3"></iframe>
+        <div class="playlist-title">Playlist Non Récupérée 3</div>
+      </div>
     </div>
   </section>
 
-  <section class="playlist-section spotify" id="spotify-section">
+  <section id="playlists-spotify">
     <h2>Playlists Spotify</h2>
-    <div class="playlist-container">
-      <div class="playlist-card">
-        <iframe src="https://open.spotify.com/embed/playlist/74QRoKeEJazkcG9EVJIdJM" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="playlists-container">
+      <div class="playlist-card spotify">
+        <iframe 
+          src="https://open.spotify.com/embed/playlist/74QRoKeEJazkcG9EVJIdJM" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy"
+          title="Playlist Spotify 1"></iframe>
         <div class="playlist-title">Playlist Spotify 1</div>
       </div>
-      <div class="playlist-card">
-        <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1E38Pg3Ul61aJz" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="playlist-card spotify">
+        <iframe 
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E38Pg3Ul61aJz" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy"
+          title="Playlist Spotify 2"></iframe>
         <div class="playlist-title">Playlist Spotify 2</div>
       </div>
-      <!-- Ajoute d'autres playlists ici -->
+      <div class="playlist-card spotify">
+        <iframe 
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1E3al3braNQh1G" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy"
+          title="Playlist Spotify 3"></iframe>
+        <div class="playlist-title">Playlist Spotify 3</div>
+      </div>
     </div>
   </section>
 
+  <section id="about">
+    <h2>À propos</h2>
+    <p>Bienvenue sur HamzaSound, votre source pour découvrir des playlists sélectionnées sur YouTube et Spotify. Profitez d’un accès direct et simple, sans publicité intégrée.</p>
+  </section>
 </main>
 
 <footer>
-  &copy; 2025 HamzaSound - Contact : <a href="mailto:ton.email@example.com" style="color:#1DB954;">ton.email@example.com</a>
+  <p>Contact : <a href="mailto:ton.email@example.com">ton.email@example.com</a> &copy; 2025 HamzaSound</p>
 </footer>
 
 </body>

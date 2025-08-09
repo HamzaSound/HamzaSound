@@ -40,7 +40,6 @@
     }
     .playlists {
       padding: 120px 20px 40px;
-<<<<<<< HEAD
       max-width: 1000px;
       margin: 0 auto;
       text-align: center;
@@ -97,44 +96,6 @@
       color: #ccc;
       font-size: 1.1rem;
       text-align: center;
-=======
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    h2 { color: #1db954; }
-    audio {
-      width: 100%;
-      margin-top: 15px;
-      outline: none;
-      border-radius: 8px;
-      background: #222;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-    li {
-      padding: 10px;
-      background: #282828;
-      border-radius: 8px;
-      margin-bottom: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    li:hover {
-      background: #333;
-    }
-    .active {
-      background: #1db954;
-      color: #121212;
-      font-weight: bold;
-    }
-    /* Supprime les sections Spotify et YouTube */
-    #playlists-spotify, #playlists-youtube {
-      display: none;
->>>>>>> 3584007e44aedcf3603ba90f5d148a6bd669b2d6
     }
   </style>
 </head>
@@ -143,18 +104,13 @@
 <header>
   <div class="logo">HamzaSound</div>
   <nav>
-<<<<<<< HEAD
     <a href="#playlists-spotify">Playlists Spotify</a>
     <a href="#playlists-youtube">Playlists YouTube</a>
-=======
-    <a href="#playlist-local">Ma Playlist</a>
->>>>>>> 3584007e44aedcf3603ba90f5d148a6bd669b2d6
     <a href="#about">À propos</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<<<<<<< HEAD
 <section id="playlists-spotify" class="playlists">
   <h2>Playlists Spotify</h2>
   <p class="intro-text">
@@ -175,7 +131,7 @@
       </iframe>
       <h3>Ma Playlist Spotify</h3>
     </div>
-    <!-- Ajoute ici d'autres playlists Spotify -->
+    <!-- Tu peux ajouter d'autres playlists Spotify ici -->
   </div>
 </section>
 
@@ -193,24 +149,13 @@
     </iframe>
     <h3>Playlist Rap Maroc 2020</h3>
   </div>
-=======
-<section id="playlist-local" class="playlists">
-  <h2>Ma Playlist Locale</h2>
-  <audio id="player" controls></audio>
-  <ul id="playlist"></ul>
->>>>>>> 3584007e44aedcf3603ba90f5d148a6bd669b2d6
 </section>
 
 <section id="about" class="playlists">
   <h2>À propos</h2>
   <p style="max-width:600px; margin: 0 auto; color:#ccc;">
-<<<<<<< HEAD
     HamzaSound est ton coin musique préféré. Découvre et écoute facilement des playlists YouTube et Spotify.<br>
     Pour profiter pleinement des playlists Spotify, connecte-toi avec ton compte Spotify.
-=======
-    HamzaSound est ton coin musique préféré. Écoute facilement tes musiques locales directement sur le site.<br>
-    Il suffit de mettre tes fichiers MP3 dans le dossier <code>music/</code> à côté du fichier <code>index.html</code>.
->>>>>>> 3584007e44aedcf3603ba90f5d148a6bd669b2d6
   </p>
 </section>
 
@@ -226,7 +171,6 @@
 </section>
 
 <script>
-<<<<<<< HEAD
   const btnSpotifyLogin = document.getElementById('btn-spotify-login');
   const spotifyPlaylists = document.getElementById('spotify-playlists');
   const spotifyInfo = document.getElementById('spotify-info');
@@ -238,49 +182,6 @@
     btnSpotifyLogin.style.display = 'none';
     spotifyPlaylists.style.display = 'block';
   });
-=======
-  // Liste les fichiers MP3 de ton dossier music ici (mets tes vrais noms de fichiers)
-  const tracks = [
-    { name: "Chanson 1", file: "music/chanson1.mp3" },
-    { name: "Chanson 2", file: "music/chanson2.mp3" },
-    { name: "Chanson 3", file: "music/chanson3.mp3" }
-  ];
-
-  const player = document.getElementById("player");
-  const playlistEl = document.getElementById("playlist");
-  let current = 0;
-
-  function loadTrack(index) {
-    current = index;
-    player.src = tracks[index].file;
-    updateActive();
-  }
-
-  function updateActive() {
-    [...playlistEl.children].forEach((li, idx) => {
-      li.classList.toggle("active", idx === current);
-    });
-  }
-
-  tracks.forEach((track, index) => {
-    const li = document.createElement("li");
-    li.textContent = track.name;
-    li.onclick = () => {
-      loadTrack(index);
-      player.play();
-    };
-    playlistEl.appendChild(li);
-  });
-
-  player.addEventListener("ended", () => {
-    current = (current + 1) % tracks.length;
-    loadTrack(current);
-    player.play();
-  });
-
-  // Charge la première musique au chargement
-  loadTrack(0);
->>>>>>> 3584007e44aedcf3603ba90f5d148a6bd669b2d6
 </script>
 
 </body>

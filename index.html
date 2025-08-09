@@ -3,174 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HamzaSound</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: #eee;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; padding: 0;
-    }
-    header {
-      position: fixed;
-      top: 0; width: 100%;
-      background-color: #181818;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.8);
-      z-index: 1000;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #1db954;
-      cursor: default;
-    }
-    nav a {
-      color: #eee;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #1db954;
-    }
-    main {
-      padding: 120px 20px 40px;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    h2 {
-      color: #1db954;
-      margin-bottom: 20px;
-    }
-    .playlist-card {
-      background-color: #282828;
-      border-radius: 10px;
-      width: 320px;
-      padding-bottom: 20px;
-      margin: 20px auto;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .playlist-card:hover {
-      background-color: #1db954;
-    }
-    .playlist-card iframe {
-      border-radius: 12px 12px 0 0;
-      width: 100%;
-      height: 180px;
-    }
-    .playlist-card h3 {
-      margin-top: 15px;
-      color: #eee;
-    }
-    button#btn-spotify-login {
-      background-color: #1db954;
-      border: none;
-      color: #121212;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background-color 0.3s ease;
-    }
-    button#btn-spotify-login:hover {
-      background-color: #17a744;
-    }
-    #spotify-info {
-      margin-top: 10px;
-      color: #ccc;
-      font-style: italic;
-    }
-  </style>
+  <title>Mes Playlists YouTube et Spotify</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <div class="logo">HamzaSound</div>
-  <nav>
-    <a href="#playlists-spotify">Playlists Spotify</a>
-    <a href="#playlists-youtube">Playlists YouTube</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main>
-
-  <section id="playlists-spotify" class="playlists">
-    <h2>Playlists Spotify</h2>
-    <p>
-      Pour écouter les playlists Spotify <strong>en entier</strong>, connecte-toi avec ton compte Spotify.
-    </p>
-    <button id="btn-spotify-login">Se connecter à Spotify</button>
-    <p id="spotify-info">Connecte-toi pour écouter les playlists Spotify complètes.</p>
-    
-    <div id="spotify-playlists" style="display:none;">
-      <div class="playlist-card">
-        <iframe
-          src="https://open.spotify.com/embed/playlist/0j21a5o4C5i0X395Di8wDz?utm_source=generator"
-          frameborder="0"
-          allowfullscreen
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy">
-        </iframe>
-        <h3>Ma Playlist Spotify</h3>
-      </div>
-      <!-- Tu peux ajouter d'autres playlists Spotify ici -->
-    </div>
-  </section>
-
   <section id="playlists-youtube" class="playlists">
     <h2>Playlists YouTube</h2>
+
     <div class="playlist-card">
       <iframe
+        width="320"
+        height="180"
         src="https://www.youtube.com/embed/videoseries?list=PLvlrlPZZ-B2y8Ldu4PiXtq9RsgdZpLvgH"
+        title="Playlist Rap Maroc 2020"
         frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
       <h3>Playlist Rap Maroc 2020</h3>
     </div>
+
     <div class="playlist-card">
       <iframe
-        src="https://www.youtube.com/embed/videoseries?list=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-"
+        width="320"
+        height="180"
+        src="https://www.youtube.com/embed/videoseries?list=PLSJkIg_k31H_CoiwpGeklxjQuSR86MZ64"
+        title="Playlist Chill Vibes"
         frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
-      <h3>Playlist Chill & Relax</h3>
+      <h3>Playlist Chill Vibes</h3>
+    </div>
+
+    <div class="playlist-card">
+      <iframe
+        width="320"
+        height="180"
+        src="https://www.youtube.com/embed/videoseries?list=PLm7aQ2P4NkQSUZCbZTTxnePtNnhqxUO5w"
+        title="Playlist Non Récupérée 1"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <h3>Playlist Non Récupérée 1</h3>
+    </div>
+
+    <div class="playlist-card">
+      <iframe
+        width="320"
+        height="180"
+        src="https://www.youtube.com/embed/videoseries?list=PLaiwvpfE9Qsg-xvVHLFGgsq4bfgAhuo8G"
+        title="Playlist Non Récupérée 2"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <h3>Playlist Non Récupérée 2</h3>
+    </div>
+
+    <div class="playlist-card">
+      <iframe
+        width="320"
+        height="180"
+        src="https://www.youtube.com/embed/videoseries?list=PLkVOH0_SJjvBmLSKkLeL0GTdYC8l-p2aN"
+        title="Playlist Non Récupérée 3"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <h3>Playlist Non Récupérée 3</h3>
     </div>
   </section>
 
-  <section id="contact" class="playlists">
-    <h2>Contact</h2>
-    <p>Retrouve-nous sur Instagram et Snapchat pour partager ta vibe !</p>
-    <a href="https://www.instagram.com/7mz____" target="_blank" style="color:#1db954; margin-right:20px;">Instagram</a>
-    <a href="https://www.snapchat.com/@hamza-x7777" target="_blank" style="color:#1db954;">Snapchat</a>
+  <section id="playlists-spotify" class="playlists">
+    <h2>Playlists Spotify</h2>
+
+    <div class="playlist-card">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/74QRoKeEJazkcG9EVJIdJM"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        style="border-radius:12px;">
+      </iframe>
+      <h3>Playlist Spotify 1</h3>
+    </div>
+
+    <div class="playlist-card">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1E38Pg3Ul61aJz"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        style="border-radius:12px;">
+      </iframe>
+      <h3>Playlist Spotify 2</h3>
+    </div>
+
+    <div class="playlist-card">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1E3al3braNQh1G"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        style="border-radius:12px;">
+      </iframe>
+      <h3>Playlist Spotify 3</h3>
+    </div>
+
   </section>
-
-</main>
-
-<script>
-  const btnSpotifyLogin = document.getElementById('btn-spotify-login');
-  const spotifyPlaylists = document.getElementById('spotify-playlists');
-  const spotifyInfo = document.getElementById('spotify-info');
-
-  btnSpotifyLogin.addEventListener('click', () => {
-    // Ici tu peux faire une vraie intégration OAuth Spotify si tu veux,
-    // mais pour la démo, on simule la connexion réussie :
-    spotifyInfo.textContent = "Connecté à Spotify ! Tu peux maintenant écouter les playlists complètes.";
-    btnSpotifyLogin.style.display = 'none';
-    spotifyPlaylists.style.display = 'block';
-  });
-</script>
 
 </body>
 </html>

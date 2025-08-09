@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HamzaSound</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+    }
+    header {
+      position: fixed;
+      top: 0; width: 100%;
+      background-color: #181818;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.8);
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #1db954;
+      cursor: default;
+    }
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #1db954;
+    }
+    .playlists {
+      padding: 120px 20px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .playlists h2 {
+      color: #1db954;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .playlist-card {
+      background-color: #282828;
+      border-radius: 10px;
+      width: 320px;
+      padding-bottom: 20px;
+      margin: 20px auto;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .playlist-card:hover {
+      background-color: #1db954;
+    }
+    .playlist-card iframe {
+      border-radius: 12px 12px 0 0;
+      width: 100%;
+      height: 352px;
+    }
+    .playlist-card h3 {
+      margin-top: 15px;
+      color: #eee;
+    }
+    button#btn-spotify-login {
+      background-color: #1db954;
+      border: none;
+      color: #121212;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+    button#btn-spotify-login:hover {
+      background-color: #17a744;
+    }
+    #spotify-info {
+      margin-top: 10px;
+      color: #ccc;
+      font-style: italic;
+    }
+    p.intro-text {
+      max-width: 400px;
+      margin: 0 auto 20px auto;
+      color: #ccc;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">HamzaSound</div>
+  <nav>
+    <a href="#playlists-spotify">Playlists Spotify</a>
+    <a href="#playlists-youtube">Playlists YouTube</a>
+    <a href="#about">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="playlists-spotify" class="playlists">
+  <h2>Playlists Spotify</h2>
+  <p class="intro-text">
+    Pour écouter les playlists Spotify <strong>en entier</strong>, il faut se connecter à votre compte Spotify.<br>
+    Cela garantit une écoute complète et respecte les droits d’auteur.
+  </p>
+  <button id="btn-spotify-login">Se connecter à Spotify</button>
+  <p id="spotify-info">Connectez-vous pour écouter les playlists Spotify.</p>
+  
+  <div id="spotify-playlists" style="display:none;">
+    <div class="playlist-card">
+      <iframe
+        src="https://open.spotify.com/embed/playlist/0j21a5o4C5i0X395Di8wDz?utm_source=generator"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+      <h3>Ma Playlist Spotify</h3>
+    </div>
+    <!-- Ajoute ici d'autres playlists Spotify -->
+  </div>
+</section>
+
+<section id="playlists-youtube" class="playlists">
+  <h2>Playlists YouTube</h2>
+  <div class="playlist-card">
+    <iframe
+      width="320"
+      height="180"
+      src="https://www.youtube.com/embed/videoseries?list=PLvlrlPZZ-B2y8Ldu4PiXtq9RsgdZpLvgH"
+      title="Playlist Rap Maroc 2020"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+    <h3>Playlist Rap Maroc 2020</h3>
+  </div>
+</section>
+
+<section id="about" class="playlists">
+  <h2>À propos</h2>
+  <p style="max-width:600px; margin: 0 auto; color:#ccc;">
+    HamzaSound est ton coin musique préféré. Découvre et écoute facilement des playlists YouTube et Spotify.<br>
+    Pour profiter pleinement des playlists Spotify, connecte-toi avec ton compte Spotify.
+  </p>
+</section>
+
+<section id="contact" class="playlists">
+  <h2>Contact</h2>
+  <p style="max-width:600px; margin: 0 auto; color:#ccc;">
+    Retrouve-nous sur Instagram et Snapchat pour partager ta vibe !
+  </p>
+  <div style="margin-top: 15px;">
+    <a href="https://www.instagram.com/7mz____" target="_blank" style="color:#1db954; margin-right:20px;">Instagram</a>
+    <a href="https://www.snapchat.com/@hamza-x7777" target="_blank" style="color:#1db954;">Snapchat</a>
+  </div>
+</section>
+
+<script>
+  const btnSpotifyLogin = document.getElementById('btn-spotify-login');
+  const spotifyPlaylists = document.getElementById('spotify-playlists');
+  const spotifyInfo = document.getElementById('spotify-info');
+
+  btnSpotifyLogin.addEventListener('click', () => {
+    // Ici, tu dois lancer la connexion OAuth avec Spotify
+    // Pour la démo on simule une connexion réussie :
+    spotifyInfo.textContent = "Connecté à Spotify ! Vous pouvez maintenant écouter les playlists complètes.";
+    btnSpotifyLogin.style.display = 'none';
+    spotifyPlaylists.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
